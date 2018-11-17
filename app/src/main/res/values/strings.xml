@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MAPAssign3</string>
+    <string name="exit">EXIT</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="stadium">Stadium</string>
+    <string name="mvp">MVP</string>
+    <string name="sport">Sport</string>
+    <string name="name">Name</string>
+    <string name="city">City</string>
+    <string name="submit">SUBMIT</string>
+    <string name="justin_vuu">Justin Vuu</string>
+    <string name="add_team">ADD TEAM</string>
+</resources>
