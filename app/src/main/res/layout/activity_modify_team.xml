@@ -27,7 +27,7 @@
                     android:paddingStart="15sp"
                     android:paddingEnd="15sp"
                     android:text="@string/city"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
                 <EditText
                     android:id="@+id/editCity"
                     android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
                     android:maxLength="10"
                     android:inputType="textPersonName"
                     android:hint="@string/city"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                     android:paddingStart="15sp"
                     android:paddingEnd="15sp"
                     android:text="@string/name"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
                 <EditText
                     android:id="@+id/editName"
                     android:layout_width="wrap_content"
@@ -56,28 +56,33 @@
                     android:maxLength="10"
                     android:inputType="textPersonName"
                     android:hint="@string/name"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="10sp">
+                android:paddingHorizontal="10sp"
+                android:paddingVertical="20sp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="15sp"
                     android:paddingEnd="15sp"
                     android:text="@string/sport"
-                    android:textSize="30sp" />
-                <EditText
+                    android:textSize="25sp" />
+                <Spinner
+                    android:id="@+id/spinSport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></Spinner>
+                <!-- <EditText
                     android:id="@+id/editSport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLength="10"
                     android:inputType="textPersonName"
                     android:hint="@string/sport"
-                    android:textSize="30sp" />
+                    android:textSize="30sp" /> -->
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,7 +95,7 @@
                     android:paddingStart="15sp"
                     android:paddingEnd="15sp"
                     android:text="@string/mvp"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
                 <EditText
                     android:id="@+id/editMVP"
                     android:layout_width="wrap_content"
@@ -98,28 +103,26 @@
                     android:maxLength="10"
                     android:inputType="textPersonName"
                     android:hint="@string/mvp"
-                    android:textSize="30sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="10sp">
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="125sp"
+                    android:layout_height="125sp"
+                    android:src="@drawable/image_not_found"/>
                 <TextView
+                    android:id="@+id/txtUpload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingStart="15sp"
                     android:paddingEnd="15sp"
-                    android:text="@string/stadium"
-                    android:textSize="30sp" />
-                <EditText
-                    android:id="@+id/editStadium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLength="10"
-                    android:inputType="textPersonName"
-                    android:hint="@string/stadium"
-                    android:textSize="30sp" />
+                    android:text="@string/upload"
+                    android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -133,7 +136,8 @@
                 android:padding="10sp"
                 android:text="@string/update"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="#000" />
             <TextView
                 android:id="@+id/txtDelete"
                 android:layout_width="wrap_content"
@@ -141,7 +145,8 @@
                 android:padding="10sp"
                 android:text="@string/delete"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="#000" />
             <TextView
                 android:id="@+id/txtExit"
                 android:layout_width="wrap_content"
@@ -150,7 +155,7 @@
                 android:text="@string/exit"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textColor="#000" />
         </LinearLayout>
     </LinearLayout>
 

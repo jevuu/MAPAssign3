@@ -1,29 +1,31 @@
 package com.example.d8.mapassign3;
 
+import android.net.Uri;
+
 public class SportTeam {
     private int id;
     private String name;
     private String sport;
     private String city;
-    private String stadium;
     private String mvp;
+    private Uri logoUri;
 
     public SportTeam(){
         this.id         = 0;
         this.name       = "";
         this.sport      = "";
         this.city       = "";
-        this.stadium    = "";
         this.mvp        = "";
+        this.logoUri    = Uri.parse("drawable/image_not_found");
     };
 
-    public SportTeam(int id, String name, String sport, String city, String stadium, String mvp){
+    public SportTeam(int id, String name, String sport, String city, String mvp, Uri logo){
         this.id         = id;
         this.name       = name;
         this.sport      = sport;
         this.city       = city;
-        this.stadium    = stadium;
         this.mvp        = mvp;
+        this.logoUri    = logo;
     }
 
     public int getId() { return id; }
@@ -36,9 +38,9 @@ public class SportTeam {
         return city;
     }
 
-    public String getStadium() { return stadium; }
-
     public String getMVP()  { return mvp; }
 
-    public String toString() {return "" + id + ", " + name + ", " + sport  + ", " + city + ", " + stadium + ", " + mvp; }
+    public Uri getLogoUri() {return logoUri; }
+
+    public String toString() {return "" + id + ", " + name + ", " + sport  + ", " + city + ", " + mvp + ", " + logoUri.toString(); }
 }

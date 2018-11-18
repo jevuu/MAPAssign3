@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
+import android.net.Uri;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS 'teams' (id INTEGER PRIMARY KEY, name VARCHAR, " +
-                "sport VARCHAR, city VARCHAR, stadium VARCHAR, mvp VARCHAR)");
+                "sport VARCHAR, city VARCHAR, mvp VARCHAR, logoUri VARCHAR)");
     }
 
     @Override
@@ -38,12 +39,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             int name    = c.getColumnIndex("name");
             int sport   = c.getColumnIndex("sport");
             int city   = c.getColumnIndex("city");
-            int stadium   = c.getColumnIndex("stadium");
+            int logo    = c.getColumnIndex("logoUri");
             int mvp   = c.getColumnIndex("mvp");
             do{
-                Log.d("Team", c.getInt(id) + ", " + c.getString(name) + ", " + c.getString(sport) + ", " + c.getString(city) + ", " + c.getString(stadium) + ", " + c.getString(mvp));
                 SportTeam tempTeam = new SportTeam(c.getInt(id), c.getString(name),
-                        c.getString(sport), c.getString(city), c.getString(stadium), c.getString(mvp));
+                        c.getString(sport), c.getString(city), c.getString(mvp), Uri.parse(c.getString(logo)));
+                //Log.d("Team details check", tempTeam.toString());
                 listTeam.add(tempTeam);
             }while(c.moveToNext());
         }
@@ -64,11 +65,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             //int id      = c.getColumnIndex("id");
             int name    = c.getColumnIndex("name");
             int sport   = c.getColumnIndex("sport");
-            int city   = c.getColumnIndex("city");
-            int stadium   = c.getColumnIndex("stadium");
+            int city    = c.getColumnIndex("city");
+            int logo    = c.getColumnIndex("logoUri");
+            //Uri logoUri = Uri.parse(c.getString(logo));
             int mvp   = c.getColumnIndex("mvp");
             tempTeam = new SportTeam(id, c.getString(name),
-                    c.getString(sport), c.getString(city), c.getString(stadium), c.getString(mvp));
+                    c.getString(sport), c.getString(city), c.getString(mvp), Uri.parse(c.getString(logo)));
             //Log.d("Team details check 1", tempTeam.toString());
         }
         c.close();
@@ -77,29 +79,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return tempTeam;
     }
 
-    //Add a team
-    public void addTeam(String name, String sport, String city, String stadium, String mvp){
+    //Add a team with logoUri
+    public void addTeam(String name, String sport, String city, String mvp, Uri logoUri){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("sport", sport);
         values.put("city", city);
-        values.put("stadium", stadium);
         values.put("mvp", mvp);
+        values.put("logoUri", logoUri.toString());
         db.insert("teams", null, values);
         db.close();
     }
 
-    //Edit team details
-    public void editTeam(int id, String name, String sport, String city, String stadium, String mvp){
+    //Edit team details with logoUri
+    public void editTeam(int id, String name, String sport, String city, String mvp, Uri logoUri){
         String whereClause = "id = " + id;
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("sport", sport);
         values.put("city", city);
-        values.put("stadium", stadium);
         values.put("mvp", mvp);
+        values.put("logoUri", logoUri.toString());
         db.update("teams", values, whereClause, null);
         db.close();
     }
